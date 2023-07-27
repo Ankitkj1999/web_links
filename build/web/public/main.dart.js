@@ -53515,7 +53515,7 @@ A.jf.prototype={
 U(a){var s=this,r=null
 return A.Lg(A.a([B.t9,A.k_(r,new A.j_(B.xw,new A.BQ(s.d,s.r,s.e,B.Ic,s.f,24,r),r),B.C,r,r,new A.e8(s.c,r,r,A.a0C(15),r,r,B.aC),r,60,r,r,r,r,250)],t.U),B.nt)}}
 A.zE.prototype={
-U(a){return new A.q5(B.Cu,"Flutter Demo",A.a6l(null,A.ac_(B.V,B.Cc),!0),null)}}
+U(a){return new A.q5(B.Cu,"Ankit Kumar",A.a6l(null,A.ac_(B.V,B.Cc),!0),null)}}
 A.a_U.prototype={
 $0(){return A.akt()},
 $S:30}

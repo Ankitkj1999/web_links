@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media_flutter/social_media_flutter.dart';
+import 'package:web_links/const/socialContainer.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -8,9 +9,15 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+//TODO: Usegetx for state management abd utils
+//TODO: Add dark theme and lighttheme
+//TODO: Add localization
+//TODO: Replace SocialContainer with custom widget
+
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    bool isDesktop = MediaQuery.of(context).size.width > 800;
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height, // 100% of height
@@ -77,50 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          // Instagram
-                          SocialContainer(
-                              containerColor: Colors.pink,
-                              placeholderText: 'app.ankitkumar',
-                              iconData: SocialIconsFlutter.instagram,
-                              iconColor: Colors.white,
-                              link:
-                                  'https://www.instagram.com/app.ankitkumar/'),
-
-                          // Linkedin
-                          SocialContainer(
-                              containerColor: Colors.blueAccent,
-                              placeholderText: 'Ankitkj1999',
-                              iconData: SocialIconsFlutter.linkedin,
-                              iconColor: Colors.white,
-                              link: 'https://www.linkedin.com/in/ankitkj1999/'),
-                          // Github
-                          SocialContainer(
-                              containerColor: Colors.black38,
-                              placeholderText: 'Ankitkj1999',
-                              iconData: SocialIconsFlutter.github,
-                              iconColor: Colors.white,
-                              link: 'https://github.com/Ankitkj1999'),
-                          // Twitter
-                          SocialContainer(
-                              containerColor: Colors.lightBlue,
-                              placeholderText: 'Ankitkj1999',
-                              iconData: SocialIconsFlutter.twitter,
-                              iconColor: Colors.white,
-                              link: 'https://twitter.com/Ankitkj1999'),
-
-                          // Portfolio
-                          SocialContainer(
-                              containerColor: Colors.deepPurpleAccent,
-                              placeholderText: 'Portfolio',
-                              iconData: SocialIconsFlutter.apple,
-                              iconColor: Colors.white,
-                              link: 'https://ankit-kumar-cv.web.app/')
-                          // You can add more buttons
-                        ],
-                      ),
+                      child: isDesktop ? RowView() : ColumnView(),
                     ),
                   ),
                 ),
@@ -131,52 +95,148 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
 
-class SocialContainer extends StatelessWidget {
-  final Color containerColor;
-  final String placeholderText;
-  final IconData iconData;
-  final Color iconColor;
-  final String link;
-
-  const SocialContainer(
-      {super.key,
-      required this.containerColor,
-      required this.placeholderText,
-      required this.iconData,
-      required this.iconColor,
-      required this.link});
-
-  @override
-  Widget build(BuildContext context) {
+  Column ColumnView() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const SizedBox(
-          height: 10,
-        ),
-        Container(
-          height: 60,
-          width: 250,
-          decoration: BoxDecoration(
-            color: containerColor,
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SocialWidget(
-              placeholderText: placeholderText,
-              iconData: iconData,
-              iconColor: iconColor,
-              iconSize: 24,
-              link: link,
-              placeholderStyle: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-              ),
+        // Instagram
+        SocialContainer(
+            containerColor: Colors.pink,
+            placeholderText: 'app.ankitkumar',
+            iconData: SocialIconsFlutter.instagram,
+            iconColor: Colors.white,
+            link: 'https://www.instagram.com/app.ankitkumar/'),
+
+        // Linkedin
+        SocialContainer(
+            containerColor: Colors.blueAccent,
+            placeholderText: 'Ankitkj1999',
+            iconData: SocialIconsFlutter.linkedin,
+            iconColor: Colors.white,
+            link: 'https://www.linkedin.com/in/ankitkj1999/'),
+        // Github
+        SocialContainer(
+            containerColor: Colors.black38,
+            placeholderText: 'Ankitkj1999',
+            iconData: SocialIconsFlutter.github,
+            iconColor: Colors.white,
+            link: 'https://github.com/Ankitkj1999'),
+        // Twitter
+        SocialContainer(
+            containerColor: Colors.lightBlue,
+            placeholderText: 'Ankitkj1999',
+            iconData: SocialIconsFlutter.twitter,
+            iconColor: Colors.white,
+            link: 'https://twitter.com/Ankitkj1999'),
+
+        // Portfolio
+        SocialContainer(
+            containerColor: Colors.deepPurpleAccent,
+            placeholderText: 'Portfolio',
+            iconData: SocialIconsFlutter.apple,
+            iconColor: Colors.white,
+            link: 'https://ankit-kumar-cv.web.app/')
+        // You can add more buttons
+      ],
+    );
+  }
+
+  Row RowView() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
-          ),
+            SocialContainer(
+                containerColor: Colors.pink,
+                placeholderText: 'app.ankitkumar',
+                iconData: SocialIconsFlutter.instagram,
+                iconColor: Colors.white,
+                link: 'https://www.instagram.com/app.ankitkumar/'),
+
+            // Linkedin
+            SocialContainer(
+                containerColor: Colors.blueAccent,
+                placeholderText: 'Ankitkj1999',
+                iconData: SocialIconsFlutter.linkedin,
+                iconColor: Colors.white,
+                link: 'https://www.linkedin.com/in/ankitkj1999/'),
+            // Github
+            SocialContainer(
+                containerColor: Colors.black38,
+                placeholderText: 'Ankitkj1999',
+                iconData: SocialIconsFlutter.github,
+                iconColor: Colors.white,
+                link: 'https://github.com/Ankitkj1999'),
+            // Twitter
+            SocialContainer(
+                containerColor: Colors.lightBlue,
+                placeholderText: 'Ankitkj1999',
+                iconData: SocialIconsFlutter.twitter,
+                iconColor: Colors.white,
+                link: 'https://twitter.com/Ankitkj1999'),
+
+            // Portfolio
+            SocialContainer(
+                containerColor: Colors.deepPurpleAccent,
+                placeholderText: 'Portfolio',
+                iconData: SocialIconsFlutter.apple,
+                iconColor: Colors.white,
+                link: 'https://ankit-kumar-cv.web.app/')
+          ],
         ),
+        SizedBox(width: MediaQuery.of(context).size.width * 0.05),
+        Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
+            ),
+            SocialContainer(
+                containerColor: Colors.pink,
+                placeholderText: 'app.ankitkumar',
+                iconData: SocialIconsFlutter.instagram,
+                iconColor: Colors.white,
+                link: 'https://www.instagram.com/app.ankitkumar/'),
+
+            // Linkedin
+            SocialContainer(
+                containerColor: Colors.blueAccent,
+                placeholderText: 'Ankitkj1999',
+                iconData: SocialIconsFlutter.linkedin,
+                iconColor: Colors.white,
+                link: 'https://www.linkedin.com/in/ankitkj1999/'),
+            // Github
+            SocialContainer(
+                containerColor: Colors.black38,
+                placeholderText: 'Ankitkj1999',
+                iconData: SocialIconsFlutter.github,
+                iconColor: Colors.white,
+                link: 'https://github.com/Ankitkj1999'),
+            // Twitter
+            SocialContainer(
+                containerColor: Colors.lightBlue,
+                placeholderText: 'Ankitkj1999',
+                iconData: SocialIconsFlutter.twitter,
+                iconColor: Colors.white,
+                link: 'https://twitter.com/Ankitkj1999'),
+
+            // Portfolio
+            SocialContainer(
+                containerColor: Colors.deepPurpleAccent,
+                placeholderText: 'Portfolio',
+                iconData: SocialIconsFlutter.apple,
+                iconColor: Colors.white,
+                link: 'https://ankit-kumar-cv.web.app/')
+          ],
+        ),
+        // Instagram
+
+        // You can add more buttons
       ],
     );
   }
