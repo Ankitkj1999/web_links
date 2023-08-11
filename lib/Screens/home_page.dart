@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_media_flutter/social_media_flutter.dart';
 import 'package:web_links/const/socialContainer.dart';
+import 'package:web_links/widgets/animated_container.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -152,6 +153,55 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.05,
             ),
+            // Container(
+            //   height: MediaQuery.of(context).size.height * 0.06,
+            //   width: MediaQuery.of(context).size.width * 0.13,
+            //   // color: Colors.amber,
+            //   decoration: BoxDecoration(
+            //     color: Colors.blueAccent,
+            //     borderRadius: BorderRadius.circular(10),
+            //     // add white borders
+            //     border: Border.all(
+            //       color: Colors.white,
+            //       width: 2,
+            //     ),
+            //     // add shadow effects here
+            //     boxShadow: [
+            //       BoxShadow(
+            //         color: Colors.black.withOpacity(0.5),
+            //         spreadRadius: 1,
+            //         blurRadius: 5,
+            //         offset: const Offset(0, 3), // changes position of shadow
+            //       ),
+            //     ],
+            //   ),
+            //   // child as Row containg an image and text
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: [
+            //       Expanded(
+            //         flex: 3,
+            //         child: Image.asset(
+            //           'assets/png/gmail.png',
+            //           height: MediaQuery.of(context).size.height * 0.04,
+            //           width: MediaQuery.of(context).size.width * 0.04,
+            //         ),
+            //       ),
+            //       Expanded(
+            //         flex: 8,
+            //         child: Text(
+            //           'Latest Resume',
+            //           style: TextStyle(
+            //             color: Colors.white,
+            //             fontWeight: FontWeight.w500,
+            //             fontSize: MediaQuery.of(context).size.height * 0.02,
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            AnimatedContainerWithClickAndHover(),
             SocialContainer(
                 containerColor: Colors.pink,
                 placeholderText: 'app.ankitkumar',

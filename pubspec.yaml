@@ -20,6 +20,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   social_media_flutter: ^0.0.2
+  flutter_colorize: ^0.5.0
 
 dev_dependencies:
   flutter_test:
@@ -38,7 +39,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/ankit.png
+    - assets/
+    - assets/png/
   #   - images/a_dot_ham.jpeg
 
 
