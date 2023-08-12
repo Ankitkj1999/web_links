@@ -20,7 +20,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   social_media_flutter: ^0.0.2
-  flutter_colorize: ^0.5.0
+  url_launcher: ^6.1.12
 
 dev_dependencies:
   flutter_test:

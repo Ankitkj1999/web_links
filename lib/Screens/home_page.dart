@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:social_media_flutter/social_media_flutter.dart';
 import 'package:web_links/const/socialContainer.dart';
 import 'package:web_links/widgets/animated_container.dart';
+import 'package:web_links/widgets/footer.dart';
+import 'package:web_links/widgets/socialCards.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -75,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Expanded(
                   child: Container(
-                    height: 490,
+                    // height: 490,
                     width: MediaQuery.of(context).size.width,
                     decoration: const BoxDecoration(
                       color: Color(0xff171430),
@@ -84,8 +86,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         top: Radius.circular(50.0),
                       ),
                     ),
-                    child: Center(
-                      child: isDesktop ? RowView() : ColumnView(),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Center(
+                            child: isDesktop ? RowView() : ColumnView(),
+                          ),
+                          Footer(),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -101,44 +110,20 @@ class _MyHomePageState extends State<MyHomePage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Instagram
-        SocialContainer(
-            containerColor: Colors.pink,
-            placeholderText: 'app.ankitkumar',
-            iconData: SocialIconsFlutter.instagram,
-            iconColor: Colors.white,
-            link: 'https://www.instagram.com/app.ankitkumar/'),
-
-        // Linkedin
-        SocialContainer(
-            containerColor: Colors.blueAccent,
-            placeholderText: 'Ankitkj1999',
-            iconData: SocialIconsFlutter.linkedin,
-            iconColor: Colors.white,
-            link: 'https://www.linkedin.com/in/ankitkj1999/'),
-        // Github
-        SocialContainer(
-            containerColor: Colors.black38,
-            placeholderText: 'Ankitkj1999',
-            iconData: SocialIconsFlutter.github,
-            iconColor: Colors.white,
-            link: 'https://github.com/Ankitkj1999'),
-        // Twitter
-        SocialContainer(
-            containerColor: Colors.lightBlue,
-            placeholderText: 'Ankitkj1999',
-            iconData: SocialIconsFlutter.twitter,
-            iconColor: Colors.white,
-            link: 'https://twitter.com/Ankitkj1999'),
-
-        // Portfolio
-        SocialContainer(
-            containerColor: Colors.deepPurpleAccent,
-            placeholderText: 'Portfolio',
-            iconData: SocialIconsFlutter.apple,
-            iconColor: Colors.white,
-            link: 'https://ankit-kumar-cv.web.app/')
-        // You can add more buttons
+        SizedBox(height: MediaQuery.of(context).size.height * 0.06),
+        codewars(),
+        geeksforgeeks(),
+        github(),
+        gmail(),
+        hashnode(),
+        instagram(),
+        playstore(),
+        portfolio(),
+        resume(),
+        twitter(),
+        whatsapp(),
+        youtube(),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.05),
       ],
     );
   }
@@ -153,91 +138,12 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.05,
             ),
-            // Container(
-            //   height: MediaQuery.of(context).size.height * 0.06,
-            //   width: MediaQuery.of(context).size.width * 0.13,
-            //   // color: Colors.amber,
-            //   decoration: BoxDecoration(
-            //     color: Colors.blueAccent,
-            //     borderRadius: BorderRadius.circular(10),
-            //     // add white borders
-            //     border: Border.all(
-            //       color: Colors.white,
-            //       width: 2,
-            //     ),
-            //     // add shadow effects here
-            //     boxShadow: [
-            //       BoxShadow(
-            //         color: Colors.black.withOpacity(0.5),
-            //         spreadRadius: 1,
-            //         blurRadius: 5,
-            //         offset: const Offset(0, 3), // changes position of shadow
-            //       ),
-            //     ],
-            //   ),
-            //   // child as Row containg an image and text
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //     children: [
-            //       Expanded(
-            //         flex: 3,
-            //         child: Image.asset(
-            //           'assets/png/gmail.png',
-            //           height: MediaQuery.of(context).size.height * 0.04,
-            //           width: MediaQuery.of(context).size.width * 0.04,
-            //         ),
-            //       ),
-            //       Expanded(
-            //         flex: 8,
-            //         child: Text(
-            //           'Latest Resume',
-            //           style: TextStyle(
-            //             color: Colors.white,
-            //             fontWeight: FontWeight.w500,
-            //             fontSize: MediaQuery.of(context).size.height * 0.02,
-            //           ),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            AnimatedContainerWithClickAndHover(),
-            SocialContainer(
-                containerColor: Colors.pink,
-                placeholderText: 'app.ankitkumar',
-                iconData: SocialIconsFlutter.instagram,
-                iconColor: Colors.white,
-                link: 'https://www.instagram.com/app.ankitkumar/'),
-
-            // Linkedin
-            SocialContainer(
-                containerColor: Colors.blueAccent,
-                placeholderText: 'Ankitkj1999',
-                iconData: SocialIconsFlutter.linkedin,
-                iconColor: Colors.white,
-                link: 'https://www.linkedin.com/in/ankitkj1999/'),
-            // Github
-            SocialContainer(
-                containerColor: Colors.black38,
-                placeholderText: 'Ankitkj1999',
-                iconData: SocialIconsFlutter.github,
-                iconColor: Colors.white,
-                link: 'https://github.com/Ankitkj1999'),
-            // Twitter
-            SocialContainer(
-                containerColor: Colors.lightBlue,
-                placeholderText: 'Ankitkj1999',
-                iconData: SocialIconsFlutter.twitter,
-                iconColor: Colors.white,
-                link: 'https://twitter.com/Ankitkj1999'),
-
-            // Portfolio
-            SocialContainer(
-                containerColor: Colors.deepPurpleAccent,
-                placeholderText: 'Portfolio',
-                iconData: SocialIconsFlutter.apple,
-                iconColor: Colors.white,
-                link: 'https://ankit-kumar-cv.web.app/')
+            codewars(),
+            geeksforgeeks(),
+            github(),
+            gmail(),
+            hashnode(),
+            instagram(),
           ],
         ),
         SizedBox(width: MediaQuery.of(context).size.width * 0.05),
@@ -246,47 +152,15 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.05,
             ),
-            SocialContainer(
-                containerColor: Colors.pink,
-                placeholderText: 'app.ankitkumar',
-                iconData: SocialIconsFlutter.instagram,
-                iconColor: Colors.white,
-                link: 'https://www.instagram.com/app.ankitkumar/'),
-
-            // Linkedin
-            SocialContainer(
-                containerColor: Colors.blueAccent,
-                placeholderText: 'Ankitkj1999',
-                iconData: SocialIconsFlutter.linkedin,
-                iconColor: Colors.white,
-                link: 'https://www.linkedin.com/in/ankitkj1999/'),
-            // Github
-            SocialContainer(
-                containerColor: Colors.black38,
-                placeholderText: 'Ankitkj1999',
-                iconData: SocialIconsFlutter.github,
-                iconColor: Colors.white,
-                link: 'https://github.com/Ankitkj1999'),
-            // Twitter
-            SocialContainer(
-                containerColor: Colors.lightBlue,
-                placeholderText: 'Ankitkj1999',
-                iconData: SocialIconsFlutter.twitter,
-                iconColor: Colors.white,
-                link: 'https://twitter.com/Ankitkj1999'),
-
-            // Portfolio
-            SocialContainer(
-                containerColor: Colors.deepPurpleAccent,
-                placeholderText: 'Portfolio',
-                iconData: SocialIconsFlutter.apple,
-                iconColor: Colors.white,
-                link: 'https://ankit-kumar-cv.web.app/')
+            playstore(),
+            portfolio(),
+            resume(),
+            twitter(),
+            whatsapp(),
+            youtube(),
           ],
         ),
         // Instagram
-
-        // You can add more buttons
       ],
     );
   }
